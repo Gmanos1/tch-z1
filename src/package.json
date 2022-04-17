@@ -1,0 +1,16 @@
+{
+  "name": "tchz1",
+  "version": "1.0.0",
+  "description": "Technologie chmurowe, zadanie 1 - Konrad Miziński",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Konrad Miziński",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3"
+  }
+}
