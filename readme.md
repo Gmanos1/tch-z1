@@ -18,18 +18,22 @@ Użyte polecenia wraz z opisem:
 <ul>
 <li>Zbudowanie obrazu</li>
 <ol>
-<li> docker buildx create --name z1builder</li>
-<li> docker buildx use z1builder</li>
-<li> docker buildx inspect --bootstrap</li>
-<li> docker buildx build -f Dockerfile -t gmanos/zadanie1:z1img --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .</li>
+<li><b>docker buildx create --name z1builder</b></li>
+<li><b>docker buildx use z1builder</b></li>
+<li><b>docker buildx inspect --bootstrap</b></li>
+<li><b>docker buildx build -f Dockerfile -t gmanos/zadanie1:z1img --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .</b></li>
 </ol>
 
 <li> Uruchomienie obrazu:</li>
-1. docker run -d -p 3000:3000 --name kmz1 gmanos/zadanie1:z1img
-
+<ol>
+<li><b>docker run -d -p 3000:3000 --name kmz1 gmanos/zadanie1:z1img</b></li>
+</ol>
 <li> Wyświetlenie logów aplikacji</li>
-1. docker logs kmz1
-
+<ol>
+<li><b> docker logs kmz1</b></li>
+</ol>
 <li> Sprawdzenie ile warstw ma obraz</li>
-1. docker inspect gmanos/zadanie1:z1img | jq '.[].RootFS'
+<ol>
+<li><b>docker inspect gmanos/zadanie1:z1img | jq '.[].RootFS'</b></li>
+</ol>
 </ul>
