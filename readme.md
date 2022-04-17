@@ -1,6 +1,6 @@
-Technologie Chmurowe - zadanie1
+<h1>Technologie Chmurowe - zadanie1</h1>
 
-Autor: Konrad Miziński
+<h3>Autor: Konrad Miziński</h3>
 
 Kod źródłowy aplikacji jest w katalogu "src", wraz z komentarzami.
 Serwer domyślnie nasłuchuje na portcie 3000.
