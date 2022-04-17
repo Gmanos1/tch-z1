@@ -12,9 +12,9 @@ do pobrania niezbędnych pakietów w aplikacji.
 Drugi etap to przygotowanie już głównego obrazu opartego na obrazie "alpine",
 do którego po pobraniu pakietu "node" zostaje przeniesiona aplikacja z etapu 1.
 
-
 Użyte polecenia wraz z opisem:
 (Przed budowaniem obrazu na hoście został zainstalowany pakiet qemu-user-static, OS: ArchLinux)
+
 <ul>
 <li>Zbudowanie obrazu</li>
 <ol>
