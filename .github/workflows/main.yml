@@ -57,12 +57,12 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            gmanos/zadanie1:$IMAGE_NAME
+            gmanos/zadanie1:${{ env.IMAGE_NAME }}
       
       #Wypchniecie obrazu do Github registry
       - name: Push image to Github registry
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          docker push ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
 
       #Przenies cache'a
       - name: Move cache
