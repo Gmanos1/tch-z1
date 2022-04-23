@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_NAME: z1githubactions
   DOCKER_REPO: gmanos/zadanie1
-  DOCKER_REPO_IMAGE: ${{ env.DOCKER_REPO }}:${{ env.IMAGE_NAME }}
+  DOCKER_REPO_IMAGE: ${{ DOCKER_REPO }}:${{ IMAGE_NAME }}
 
 jobs:
   build:
