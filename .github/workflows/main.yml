@@ -18,17 +18,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            gmanos/zadanie1:z1githubactions 
+            dockerhub.io/gmanos/zadanie1:z1githubactions 
             ghcr.io/gmanos1/z1githubactions 
-          # generate Docker tags based on the following events/attributes
-          tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
 
       #Skonfigurowanie dockera + buildx
       - name: Buildx set-up
