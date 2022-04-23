@@ -5,7 +5,9 @@ on:
   push:
     branches: [ main ]
 
-  workflow_dispatch:
+env:
+  IMAGE_NAME: z1githubactions
+
 jobs:
   build:
     # The type of runner that the job will run on
@@ -37,8 +39,13 @@ jobs:
         with:
           username: ${{secrets.DOCKER_HUB_USERNAME}}
           password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
-          
-      #Zbudowanie i wypchniecie obrazu na dockhuba
+      
+      #Logowanie do rejestru Githuba
+      - name: Login to Github Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+
+      #Zbudowanie i wypchniecie obrazu na Dockerhuba
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -50,8 +57,13 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            gmanos/zadanie1:z1githubactions
-        
+            gmanos/zadanie1:$IMAGE_NAME
+      
+      #Wypchniecie obrazu do Github registry
+      - name: Push image to Github registry
+        run: |
+          docker push ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+
       #Przenies cache'a
       - name: Move cache
         run: |
