@@ -48,14 +48,16 @@ Workflow bazuje na runnerze "ubuntu-latest".
 Etapy workflowa:
 <ol>
 <li>Akcja: "checkout" - sprawdza, czy workflow ma poprawny dostęp do repo</li>
-<li>Akcja: "Buildx set-up" - konfiguruje buildx'a, przez co daje możliwość budowania obrazów na wiele architektur</li>
-<li>Akcja: "Docker Setup QEMU" - "instalacja" wielu architektur</li>
-<li>Akcja: "Cache Docker Layers" - umożliwia cachowanie, pomiędzy uruchomieniami maszyny wirtualnej</li>
-<li>Akcja: "Login to Dockerhub" - logowanie do konta Dockerhubowego</li>
-<li>Akcja: "Login to GHCR" - logowanie do rejetru Githuba</li>
-<li>Akcja: "Build and push" - zbudowanie i wypchnięcie obrazów na dockerhuba i github registry</li>
+<li>Akcja: "docker/setup-buildx-action" - konfiguruje buildx'a, przez co daje możliwość budowania obrazów na wiele architektur</li>
+<li>Akcja: "docker/setup-qemu-action" - "instalacja" wielu architektur</li>
+<li>Akcja: "cache" - umożliwia cachowanie, pomiędzy uruchomieniami maszyny wirtualnej</li>
+<li>Akcja: "docker/login-action" - logowanie do konta Dockerhubowego oraz Github registry</li>
+<li>Akcja: "build-push-action" - zbudowanie i wypchnięcie obrazów na dockerhuba i github registry</li>
 <li>Skrypt: "Move cache" - zaktualizowanie cache'a</li>
 </ol>
+
+<h4>Działanie Github repository</h4>
+Logowanie do Github repository odbywa się za pomocą akcji "docker/login-action", która została nazwana "Login to GHCR". Do logowania zostaje wykorzystany GITHUB_TOKEN, który jest unikatowany dla każdego repo i zapewnia dostęp workflow'owi jedynie w jego obrębie.GITHUB_TOKEN jest nowyszym i lepszem, sposobem autoryzacji w workflowach w przeciwieństwie do PAT (Personal Access Token).
 
 <h4>Działanie cache'a</h4>
 Na skrinach poniżej, widać jak cache zostaje poprawnie przywrócony (~157MB) z klucza, następnie stary cache zostaje zastępiony nowym (zostaje zaktualizowany). Wadą tego rozwiązania jest, że cache ciągle rośnie.
