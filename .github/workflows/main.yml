@@ -59,11 +59,8 @@ jobs:
       #Wypchniecie obrazu do Github registry
       - name: Push image to Github registry
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/z1githubactions 
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo $IMAGE_ID
-          docker tag gmanos/zadanie1:z1githubactions  $IMAGE_ID
-          docker push $IMAGE_ID
+          docker tag gmanos/zadanie1:z1githubactions ghcr.io/gmanos1/z1githubactions
+          docker push ghcr.io/gmanos1/z1githubactions
 
       #Przenies cache'a
       - name: Move cache
