@@ -38,5 +38,5 @@ Użyte polecenia wraz z opisem:
 </ol>
 </ul>
 
-<h4>Test działania</hr>
+<h4>Test działania</h4>
 <img src="images/test_aplikacji.png" />
