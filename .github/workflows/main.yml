@@ -7,6 +7,8 @@ on:
 
 env:
   IMAGE_NAME: z1githubactions
+  DOCKER_REPO: gmanos/zadanie1
+  DOCKER_REPO_IMAGE: ${{ env.DOCKER_REPO }}:${{ env.IMAGE_NAME }}
 
 jobs:
   build:
@@ -57,13 +59,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            gmanos/zadanie1:${{ env.IMAGE_NAME }}
+            ${{ env.DOCKER_REPO_IMAGE }}
       
       #Wypchniecie obrazu do Github registry
       - name: Push image to Github registry
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          echo $IMAGE_ID
+          docker tag ${{ env.DOCKER_REPO_IMAGE }} $IMAGE_ID
           docker push $IMAGE_ID
 
       #Przenies cache'a
