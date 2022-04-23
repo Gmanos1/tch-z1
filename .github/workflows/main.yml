@@ -5,10 +5,6 @@ on:
   push:
     branches: [ main ]
 
-env:
-  IMAGE_NAME: z1githubactions
-  DOCKER_REPO_IMAGE: gmanos/zadanie1:z1githubactions
-
 jobs:
   build:
     # The type of runner that the job will run on
@@ -58,15 +54,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.DOCKER_REPO_IMAGE }}
+            gmanos/zadanie1:z1githubactions 
       
       #Wypchniecie obrazu do Github registry
       - name: Push image to Github registry
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/z1githubactions 
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           echo $IMAGE_ID
-          docker tag ${{ env.DOCKER_REPO_IMAGE }} $IMAGE_ID
+          docker tag gmanos/zadanie1:z1githubactions  $IMAGE_ID
           docker push $IMAGE_ID
 
       #Przenies cache'a
