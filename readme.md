@@ -74,7 +74,7 @@ Wydane polecenia:
 <li><b>docker push localhost:5000/ubuntu.local</b> - wypchnięcie obrazu do rejestru </li>
 </ol>
 <h3>CZĘŚĆ 2 DODATKU 2</h3>
-Do poprawnego działania uwierzytelniania, wcześniej musiało zostać skonfigurowane szyfrowanie TLS. Ponieważ w zadaniu został użyty samopodpisany certfikat, w ustawieniach daemona Dockera (/etc/docker/daemon.json) należy włączyć dodać opcje "insecure-registries". <br />
+Do poprawnego działania uwierzytelniania, wcześniej musiało zostać skonfigurowane szyfrowanie TLS. Ponieważ w zadaniu został użyty samopodpisany certfikat, w ustawieniach daemona Dockera (/etc/docker/daemon.json) należy dodać wpis "insecure-registries". <br />
 <img src="images/docker_daemon.png" /> <br />
 Wydane polecenia:
 <ol>
@@ -85,7 +85,7 @@ Wydane polecenia:
 </ol>
 Test działania: <br />
 Przed zalogowaniem nie można pushnąć obrazu: <br>
-<img src="images/failed_push.png" /> <br />
+<img src="images/failed_push.png" />
 Logowanie i poprawne pushnięcie obrazu: <br />
-<img src="images/registry_login.png" /> <br />
-<img src="images/succes_push.png" /> <br />
+<img src="images/registry_login.png" />
+<img src="images/succes_push.png" />
